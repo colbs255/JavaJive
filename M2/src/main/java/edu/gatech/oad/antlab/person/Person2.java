@@ -1,11 +1,12 @@
 package edu.gatech.oad.antlab.person;
+import java.util.Random;
 
 /**
  *  A simple class for person 2
  *  returns their name and a
- *  modified string 
+ *  modified string
  *
- * @author Bob
+ * @author Duncan Chance
  * @version 1.1
  */
 public class Person2 {
@@ -30,18 +31,31 @@ public class Person2 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+		Random rand = new Random();
+	  	int start = rand.nextInt(input.length());
+
+	  	int increment = rand.nextInt(input.length() - 1) + 1;
+
+	  	String str = "";
+	  	for (int x = 0; x < input.length(); x++) {
+	  		str += input.charAt((start + x + increment) % input.length());
+	  	}
+
+	  	if (str.equals(input) && input.length() > 1) {
+	  		return calc(str);
+	  	}
+	  	return str;
 	}
 	/**
 	 * Return a string rep of this object
 	 * that varies with an input string
 	 *
 	 * @param input the varying string
-	 * @return the string representing the 
+	 * @return the string representing the
 	 *         object
 	 */
 	public String toString(String input) {
 	  return name + calc(input);
 	}
+
 }
