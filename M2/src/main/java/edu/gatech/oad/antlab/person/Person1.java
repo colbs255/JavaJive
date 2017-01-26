@@ -31,7 +31,8 @@ public class Person1 {
 	 */
 	private String calc(String input) {
 	  //Person 1 put your implementation here
-	  return null;
+		String sameAsInput = input;
+	  return sameAsInput;
 	}
 	
 	/**
